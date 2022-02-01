@@ -10,7 +10,7 @@ export const AppRouter = () => {
         <BrowserRouter>
             <Navbar />
             <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/ReclutamientoTechLead" element={<Home />} />
                 <Route path="/pokedex" element={<PokedexScreen />} />
                 <Route path="/legendaries" element={<LegendariesScreen />} />
             </Routes>
