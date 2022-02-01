@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/static/js/main.a1fef965.js",
-    "static/media/banner.png": "/static/media/banner.b5a7f283d44648966777.png",
-    "index.html": "/index.html",
-    "main.a1fef965.js.map": "/static/js/main.a1fef965.js.map"
+    "main.js": "/ReclutamientoTechLead/static/js/main.4824dfdf.js",
+    "static/media/banner.png": "/ReclutamientoTechLead/static/media/banner.b5a7f283d44648966777.png",
+    "index.html": "/ReclutamientoTechLead/index.html",
+    "main.4824dfdf.js.map": "/ReclutamientoTechLead/static/js/main.4824dfdf.js.map"
   },
   "entrypoints": [
-    "static/js/main.a1fef965.js"
+    "static/js/main.4824dfdf.js"
   ]
 }
