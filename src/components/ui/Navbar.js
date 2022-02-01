@@ -9,7 +9,7 @@ export const Navbar = () => {
             
                 <Link 
                     className="navbar-brand" 
-                    to="/ReclutamientoTechLead"
+                    to="/"
                 >
                     <img src={logo} alt='logo'/>
                 </Link>
@@ -19,7 +19,7 @@ export const Navbar = () => {
 
                         <NavLink 
                             className={ ( {isActive} ) => 'nav-item nav-link ' + ( isActive && 'active') }  
-                            to="/ReclutamientoTechLead"
+                            to="/"
                         >
                             Home
                         </NavLink>
