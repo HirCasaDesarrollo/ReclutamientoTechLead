@@ -30,8 +30,101 @@ h5{font-size: 18px;}
 h6{font-size: 12px;}
 p{font-size: 16px;}
 
+// pokeColors
+.pokeBackgronundnormal,.badge-normal{background: #76AADB;}
+.pokeBackgronundfighting,.badge-fighting{background: #F76545;}
+.pokeBackgronundflying,.badge-flying{background: #76AADB;}
+.pokeBackgronundpoison,.badge-poison{background: #A974BC;}
+.pokeBackgronundground,.badge-ground{background: #9B897B;}
+.pokeBackgronundrock,.badge-rock{background: #A1A1A1;}
+.pokeBackgronundbug,.badge-bug{background: #70A83B;}
+.pokeBackgronundghost,.badge-ghost{background: #A974BC;}
+.pokeBackgronundsteel,.badge-steel{background: #A1A1A1;}
+.pokeBackgronundfire,.badge-fire{background: #F76545;}
+.pokeBackgronundwater,.badge-water{background: #A2CFF0;}
+.pokeBackgronundgrass,.badge-grass{background: #70A83B;}
+.pokeBackgronundelectric,.badge-electric{background: #F7C545;}
+.pokeBackgronundpsychic,.badge-psychic{background: #A974BC;}
+.pokeBackgronundice,.badge-ice{background: #A2CFF0;}
+.pokeBackgronunddragon,.badge-dragon{background: #F76545;}
+.pokeBackgronunddark,.badge-dark{background: #A1A1A1;}
+.pokeBackgronundfairy,.badge-fairy{background: #A974BC;}
+.pokeBackgronundunknown,.badge-unknown{background: rgb(0, 0, 0);}
+.pokeBackgronundshadow,.badge-shadow{background: #4d4c4c;}
+
+//Degradados pokemo
+.pokeBackgronundDegrenormal {
+    background: linear-gradient(180deg, #2f6597 42.19%, #76AADB 100%);
+}
+.pokeBackgronundDegrefighting {
+    background: linear-gradient(180deg, #923722 42.19%, #F76545 100%);
+}
+.pokeBackgronundDegreflying {
+    background: linear-gradient(180deg, #2f6597 42.19%, #76AADB 100%);
+}
+.pokeBackgronundDegrepoison {
+    background: linear-gradient(180deg, #693a7a 42.19%, #A974BC 100%);
+}
+.pokeBackgronundDegreground {
+    background: linear-gradient(180deg, #7c5d45 42.19%, #9B897B 100%);
+}
+.pokeBackgronundDegrerock {
+    background: linear-gradient(180deg, #474646 42.19%, #A1A1A1 100%);
+}
+.pokeBackgronundDegrebug {
+    background: linear-gradient(180deg, #4a7522 42.19%, #70A83B 100%);
+}
+.pokeBackgronundDegreghost {
+    background: linear-gradient(180deg, #693a7a 42.19%, #A974BC 100%);
+}
+.pokeBackgronundDegresteel {
+    background: linear-gradient(180deg, #474646 42.19%, #A1A1A1 100%);
+}
+.pokeBackgronundDegrefire {
+    background: linear-gradient(180deg, #923722 42.19%, #F76545 100%);
+}
+.pokeBackgronundDegrewater {
+    background: linear-gradient(180deg, #559aca 42.19%, #A2CFF0 100%);
+}
+.pokeBackgronundDegregrass {
+    background: linear-gradient(180deg, #4a7522 42.19%, #70A83B 100%);
+}
+.pokeBackgronundDegreelectric {
+    background: linear-gradient(180deg, #bb9025 42.19%, #F7C545 100%);
+}
+.pokeBackgronundDegrepsychic {
+    background: linear-gradient(180deg, #693a7a 42.19%, #A974BC 100%);
+}
+.pokeBackgronundDegreice {
+    background: linear-gradient(180deg, #559aca 42.19%, #A2CFF0 100%);
+}
+.pokeBackgronundDegredragon {
+    background: linear-gradient(180deg, #923722 42.19%, #F76545 100%);
+}
+.pokeBackgronundDegredark {
+    background: linear-gradient(180deg, #474646 42.19%, #A1A1A1 100%);
+}
+.pokeBackgronundDegrefairy {
+    background: linear-gradient(180deg, #693a7a 42.19%, #A974BC 100%);
+}
+.pokeBackgronundDegreunknown {
+    background: rgb(0, 0, 0);
+}
+.pokeBackgronundDegreshadow {
+    background: linear-gradient(180deg, #292727 42.19%, #4d4c4c 100%);
+}
+
 @media (min-width: 1200px){
     .container{
         max-width: 1300px;
     }
 }
+
+.clikeable {
+    cursor: pointer;
+}
+
+.modal-body{
+    padding: 0px !important;
+    margin: 0px !important;
+  } 
