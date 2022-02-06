@@ -2,7 +2,7 @@
   <div class="home">
     <b-container>
       <b-row>
-        <b-col md="6">
+        <b-col lg="6" md="12">
           <b-jumbotron bg-variant="transparent">
             <template #header><b>Find</b> all your favorite <b>Pokemon</b></template>
 
@@ -14,7 +14,7 @@
             </div>
           </b-jumbotron>
         </b-col>
-        <b-col md="6">
+        <b-col lg="6" md="12">
           <PokeImg />
         </b-col>
       </b-row>

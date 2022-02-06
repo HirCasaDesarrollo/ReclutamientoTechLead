@@ -1,9 +1,9 @@
 <template>
   <b-row> 
-    <b-col md="4" class="mb-4" v-for="(pokemon) in pokemonList" :key="pokemon.id">
+    <b-col lg="4" md="6" class="mb-4" v-for="(pokemon) in pokemonList" :key="pokemon.id">
       <b-card no-body class="overflow-hidden pokeCard clikeable" @click="openPokeModal(pokemon)">
         <b-row no-gutters>
-          <b-col md="5">
+          <b-col cols="5">
             <b-card-body :title="pokemon.name">
               <b-row>
                 <b-col cols="6">
@@ -26,7 +26,7 @@
               </b-row>
             </b-card-body>
           </b-col>
-          <b-col :class="'pokeBackgronund'+pokemon.type" md="7">
+          <b-col :class="'pokeBackgronund'+pokemon.type" cols="7">
             <b-card-img :src="pokemon.img" alt="Image" class="rounded-0"></b-card-img>
           </b-col>
         </b-row>
@@ -45,42 +45,14 @@
     </b-col>
 
     <b-modal v-if="pokemonInfo != null" v-model="pokeModal" size="lg" id="modal-center" centered title="BootstrapVue" hide-header hide-footer>
-      <b-container fluid class="pokeModal">
-        <b-row class="text-center">
-          <b-col :class="'pokeBackgronund'+pokemonInfo.type" md="6">
-            <b-card-img :src="pokemonInfo.img" alt="Image" class="rounded-0"></b-card-img>
-          </b-col>
-          <b-col cols="6" :class="'pokeBackgronundDegre'+pokemonInfo.type">
-            <b-card-body :title="pokemonInfo.name">
-              <b-row>
-                <b-col cols="6">
-                  <div class="circlePercentaje">
-                    <p class="pokePercentaje">{{pokemonInfo.attack}}</p>
-                  </div>
-                  <p class="pokeHabilidatesText">Attack</p>
-                </b-col>
-                <b-col cols="6">
-                  <div class="circlePercentaje">
-                    <p class="pokePercentaje">{{pokemonInfo.defense}}</p>
-                  </div>
-                  <p class="pokeHabilidatesText">Defense</p>
-                </b-col>
-
-                <b-col class="d-flex justify-content-around">
-                  <b-badge pill :variant="pokemonInfo.type">{{pokemonInfo.type}}</b-badge>
-                  <b-badge pill :variant="pokemonInfo.otherType">{{pokemonInfo.otherType}}</b-badge>
-                </b-col>
-              </b-row>
-            </b-card-body>
-          </b-col>
-        </b-row>
-      </b-container>
+      <modal-pokemos :pokemonInfo="pokemonInfo"/>
     </b-modal>
   </b-row>
 </template>
 
 <script>
 import axios from 'axios';
+import ModalPokemos from "./ModalPokemon.vue"
 
 export default {
   name: 'CardPokemon',
@@ -93,6 +65,10 @@ export default {
         pokeModal: false,
         pokemonInfo: null,
       }
+  },
+  props:['buscar'],
+  components: {
+    ModalPokemos
   },
 
   created(){
@@ -118,6 +94,7 @@ export default {
             defense: response.data.stats[2].base_stat,
             specialAttack: response.data.stats[3].base_stat,
             specialDefense: response.data.stats[4].base_stat,
+            ability: response.data.abilities[0].ability.name+'-'+response.data.abilities[1].ability.name
           }
           this.pokemonList.push(pokemon)
         }).catch(err => {
@@ -130,7 +107,38 @@ export default {
       this.pokeModal = true
     }
   },
-};
+  watch: {
+    buscar(val) {
+        
+        if (val == "todos") {
+            console.log("soy todos");
+            this.getPokemon(1)
+        } else {
+          this.pokemonList = []
+          axios.get(`https://pokeapi.co/api/v2/pokemon/${val}`).then(response => {
+            let pokemon = {
+              id: response.data.id,
+              img: response.data.sprites.front_default,
+              name: response.data.name,
+              type: response.data.types[0].type.name,
+              otherType: response.data.types[1] ? response.data.types[1].type.name : null,
+              hp: response.data.stats[0].base_stat,
+              attack: response.data.stats[1].base_stat,
+              defense: response.data.stats[2].base_stat,
+              specialAttack: response.data.stats[3].base_stat,
+              specialDefense: response.data.stats[4].base_stat,
+              ability: response.data.abilities[0].ability.name+'-'+response.data.abilities[1].ability.name
+            }
+            this.pokemonList.push(pokemon)
+            this.totalPokemons = 1
+          }).catch(err => {
+            console.log(err);
+          })
+        }
+    }
+  }
+}
+
 </script>
 
 <style lang="scss" scoped>
@@ -194,60 +202,6 @@ export default {
     color: #4B4B4B;
     margin-top: 5px;
   }
-
-}
-
-.pokeModal {
-
-  .card-title {
-    text-align: left;
-    font-family: Karla;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 42px;
-    color: #FDFDFD;
-    text-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1);
-    text-transform: capitalize;
-  }
-
-  .badge {
-    text-transform: capitalize;
-  }
-
-  .pokeBackgronundColor{
-    background: red;
-  }
-
-  .circlePercentaje{
-    height:40px;
-    width:40px;
-    border:3px solid var(--Dark-color);
-    -moz-border-radius:50px;
-    -webkit-border-radius:50px;
-    border-radius:50px;
-    margin: auto;
-    .pokePercentaje {
-      font-family: Karla;
-      font-size: 15px;
-      line-height: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--Dark-color);
-      margin-bottom: 2px;
-      margin-top: 7px;
-    }
-  }
-
-  .pokeHabilidatesText {
-    font-family: Karla;
-    font-size: 12px;
-    line-height: 14px;
-    text-align: center;
-    color: #4B4B4B;
-    margin-top: 5px;
-  }
-
 }
 
 </style>
