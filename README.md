@@ -1,3 +1,21 @@
-# ReclutamientoTechLead
-Prueba para evaluar a los postulantes a programador Tech Lead Front-end.
-Luis Eduardo Gonzalez Morales
+# Pokédex
+
+Pokedex frontend
+Prueba de reclutamiento para HirCasa Por Luis Eduardo Gonzalez Morales
+    
+## Installation
+To install this project just type
+
+    $ npm install or yarn install
+
+To excecute type
+
+    $ npm run serve or yarn serve
+
+To build type
+
+    $ npm run build or yarn buils
+
+## License
+
+GNU General Public License v3.0
