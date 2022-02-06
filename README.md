@@ -1,7 +1,7 @@
 # Pokédex
 
 Pokedex frontend
-Prueba de reclutamiento para HirCasa
+Prueba de reclutamiento para HirCasa Por Luis Eduardo Gonzalez Morales
     
 ## Installation
 To install this project just type
