@@ -7,7 +7,6 @@ $body-color: #111;
     --Second-color:#F28F16;
     --Third-color:#F5DB13;
     --Danger-color:#D93E30;
-    --White-color:#D93E30;
     --Dark-color:#212121;
 }
 
@@ -113,6 +112,10 @@ p{font-size: 16px;}
 .pokeBackgronundDegreshadow {
     background: linear-gradient(180deg, #292727 42.19%, #4d4c4c 100%);
 }
+
+.progress {
+    height: 0.5rem;
+  }
 
 @media (min-width: 1200px){
     .container{

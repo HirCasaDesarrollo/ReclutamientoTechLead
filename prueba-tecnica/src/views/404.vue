@@ -3,12 +3,22 @@
     <b-row>
       <b-col cols="12">
         <h1 class="cuatrocientos">404</h1>
-        <img class="roketImg" src="../assets/TeamRocket.png" alt="Logo - Pokemon pokedex" srcset="">
+        <img
+          class="roketImg"
+          src="../assets/TeamRocket.png"
+          alt="Logo - Pokemon pokedex"
+          srcset=""
+        />
       </b-col>
       <b-col cols="12" class="mb-5">
         <div class="text-center">
-          <p class="roketTitle">The rocket team <span class="roketTextDark">has won this time.</span></p>
-          <b-button class="btn-notFound" :to="{ name: 'Home', force: true }">Return</b-button>
+          <p class="roketTitle">
+            The rocket team
+            <span class="roketTextDark">has won this time.</span>
+          </p>
+          <b-button class="btn-notFound" :to="{ name: 'Home', force: true }"
+            >Return</b-button
+          >
         </div>
       </b-col>
     </b-row>
@@ -16,12 +26,11 @@
 </template>
 
 <style scoped lang="scss">
-.notFound{
-  background: #D93E30;
+.notFound {
+  background: var(--Danger-color);
   height: 110%;
 
-
-  .cuatrocientos{
+  .cuatrocientos {
     font-family: Karla;
     font-style: normal;
     font-weight: bold !important;
@@ -31,28 +40,28 @@
     color: rgba(0, 0, 0, 0.5);
   }
 
-  .roketImg{
+  .roketImg {
     position: absolute;
     top: 20%;
     left: 30%;
   }
 
-  .roketTitle{
+  .roketTitle {
     font-family: Karla;
     font-style: normal;
     font-weight: bold;
     font-size: 48px;
     line-height: 56px;
-    color: #F2F2F2;
+    color: #f2f2f2;
 
     .roketTextDark {
       color: var(--Dark-color);
-    } 
+    }
   }
 
   .btn-notFound {
-    background-color: #F2CB07;
-    border-color: #F2CB07;
+    background-color: #f2cb07;
+    border-color: #f2cb07;
     box-shadow: inset 0 -9px 0 0 rgb(0 0 0 / 18%);
     border: transparent;
     border-radius: 8px;
@@ -62,7 +71,7 @@
     padding: 8px;
     cursor: pointer;
     font-size: 16px;
-    color: rgb(33,33,33);
+    color: rgb(33, 33, 33);
     outline: none;
     line-height: 40px;
     font-family: SourceSansPro;
@@ -70,9 +79,10 @@
     font-weight: 400;
   }
 
-  .btn-notFound:hover, .btn-notFound:active{
-     background: rgb(242,143,22);
-     color: rgb(33,33,33);
+  .btn-notFound:hover,
+  .btn-notFound:active {
+    background: rgb(242, 143, 22);
+    color: rgb(33, 33, 33);
   }
 }
 </style>
