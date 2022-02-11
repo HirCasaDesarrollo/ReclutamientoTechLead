@@ -1,8 +1,8 @@
 <template lang="pug">
-  .bg-gray-100.font-body
+  .bg-blanco.font-body
     Menu
     Nuxt
-    Footer
+    
 </template>
 
 <style>

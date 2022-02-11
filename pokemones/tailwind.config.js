@@ -4,8 +4,8 @@ const colors = require('tailwindcss/colors')
 module.exports = {
   theme: {
     fontFamily: {
-      body: ['Montserrat'],
-      sans: ['Merriweather']
+      body: ['Karla'],
+      sans: ['Karla']
     },
     container: {
       center: true
