@@ -1,5 +1,7 @@
 <template lang="pug">
+
 #home
+  Menu
   .main-section-container
     .part-text
       h1.part-title

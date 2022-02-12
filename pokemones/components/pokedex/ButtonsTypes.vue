@@ -22,10 +22,10 @@ export default {
 
 <style lang="postcss" scoped>
 .pokemon-types {
-  @apply inline-flex relative sm:static;
+  @apply relative text-right sm:static;
 }
 .pokemon-types button {
-  @apply w-10/12 sm:w-auto px-4 py-1 lg:py-0 lg:px-3 text-xs;
+  @apply sm:w-auto px-4 py-1 lg:py-0 lg:px-3 text-xs text-black ; 
   box-shadow: inset 0px -3px 0px rgba(0, 0, 0, 0.18);
   border-radius: 11px;
 }

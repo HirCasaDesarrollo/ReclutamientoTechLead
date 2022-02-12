@@ -30,7 +30,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    
+    '@plugins/fliking',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -44,7 +44,7 @@ export default {
   ],
   fontawesome: {
     icons: {
-      solid: [ 'faBars', 'faChevronLeft','faTimes', 'faChevronRight']
+      solid: [ 'faBars', 'faChevronLeft','faTimes', 'faChevronRight','faAngleDown']
     }
   },
   tailwindcss: {

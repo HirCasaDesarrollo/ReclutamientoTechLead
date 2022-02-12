@@ -10,57 +10,59 @@
         :style="{ color: 'black' }"
       )
     .image(
-      :style="{ background: `linear-gradient(270deg, #D93E30  0.15%, ${color} 100%)` }"
+      :style="{ background: `linear-gradient(270deg, #221b1a  0.15%, ${color} 100%)` }"
     )
-      p(class=" name text-center text-blanco mt-8 block sm:hidden") {{ pokeData.name }}
+      p.name.text-center.text-blanco.mt-8.block(class="md:hidden") {{ pokeData.pokemon_v2_pokemons[0].name }}
       img(
-        :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${this.pokeData.id}.png`"
+        :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeData.pokemon_v2_pokemons[0].id}.png`"
       )
       .back-pokemon
-      PokedexButtonsTypes( class=" hidden sm:block" :data="pokeData.pokemon_v2_pokemontypes" )
+      PokedexButtonsTypes.hidden(
+        class="sm:block",
+        :data="pokeData.pokemon_v2_pokemons[0].pokemon_v2_pokemontypes"
+      )
 
     .description(:style="backgroundColor")
       .counters.relative-container
         .generation-name
-          .hidden(class="sm:block")
-            p.name {{ pokeData.name }}
+          .hidden(class="md:block")
+            p.name {{ pokeData.pokemon_v2_pokemons[0].name }}
           .generation
             .title
               p Generation 1
             .circle-generation
               .counter 
                 p {{ pokeData.weight }}
+          PokedexButtonsTypes.block(
+            class="sm:hidden",
+            :data="pokeData.pokemon_v2_pokemontypes"
+          )
+
         .ability
           div
             h6 Abilities
             p Overgrow - Chlorophyll
 
         .bars
-          div
-            p Healthy Points
-            p.font-bold.mb-2 23423424
-            .barra-verde
-          .mt-4(class="sm:mt-0")
-            p Healthy Points
-            p.font-bold.mb-2 23423424
-            .barra-amarilla
+          PokedexCardAbility
+          PokedexCardAbility
 
         .inline-flex
           .circle
             .counter 
-              p {{ pokeData.weight }}
+              p {{ pokeData.pokemon_v2_pokemons[0].weight }}
             p Weight
           .circle
             .counter 
-              p {{ pokeData.height }}
+              p {{ pokeData.pokemon_v2_pokemons[0].height }}
             p Height
           .circle
             .counter 
-              p {{ pokeData.weight }}
+              p {{ pokeData.pokemon_v2_pokemons[0].weight }}
             p Weight
           .circle
             .counter 
-              p {{ pokeData.height }}
+              p {{ pokeData.pokemon_v2_pokemons[0].height }}
             p Height
 </template>
 <script>
@@ -70,14 +72,16 @@ export default {
       type: Object,
       default: function () {
         return {
-          name: "hgjg",
-          id: 45,
-          weight: 345,
-          height: 45,
-          pokemon_v2_pokemontypes: [
-            { pokemon_v2_type: { name: "dfgf" } },
-            { pokemon_v2_type: { name: "dfgf" } },
+          pokemon_v2_pokemons: [
+            {
+              name: undefined,
+              id: undefined,
+              weight: undefined,
+              height: undefined,
+              pokemon_v2_pokemontypes: {},
+            },
           ],
+          pokemon_v2_pokemoncolor:{}
         };
       },
     },
@@ -95,7 +99,8 @@ export default {
   computed: {
     backgroundColor() {
       return {
-        background: `linear-gradient(180deg, #732119 42.19%, ${this.color} 100%)`,
+        background: `linear-gradient(180deg, #221b1a 42.19%, ${this.color} 100%)`,
+        
       };
     },
   },
@@ -144,10 +149,10 @@ input[type="checkbox" i] {
   @apply text-xs text-black;
 }
 .container-modal .wrapper {
-  overflow-y: auto;
+  overflow-y: inherit;
 }
 .container-modal .wrapper {
-  @apply w-full md:w-11/12 lg:w-5/12 xl:w-7/12 text-morado  rounded-xl shadow-lg bg-gray-50;
+  @apply w-full md:w-11/12 lg:w-10/12 xl:w-7/12 text-morado  rounded-xl shadow-lg bg-gray-50;
 }
 .container-modal .wrapper .link-aviso {
   @apply text-azul italic;
@@ -172,7 +177,7 @@ input[type="checkbox" i] {
   background-size: cover;
 }
 .image img {
-  @apply sm:w-full w-8/12  text-right relative sm:static;
+  @apply md:w-full w-8/12  text-right relative sm:static;
   margin-left: auto;
   margin-right: auto;
 }
@@ -199,14 +204,14 @@ input[type="checkbox" i] {
 .ability {
   @apply my-5 rounded-md shadow-md text-black w-full sm:w-8/12  p-5 bg-blanco;
 }
-.ability h6{
-    font-size: 31px;
+.ability h6 {
+  font-size: 31px;
 }
 .generation {
   @apply flex flex-wrap sm:justify-end sm:items-end items-center;
 }
 .generation-name {
-  @apply grid sm:grid-cols-2 my-2  sm:items-end;
+  @apply grid grid-cols-2 my-2  sm:items-end;
 }
 .generation-name .generation {
   @apply name  text-right;
@@ -226,34 +231,21 @@ input[type="checkbox" i] {
 .bars {
   @apply my-5 rounded-md shadow-md text-black  grid grid-cols-1 sm:grid-cols-2 p-5 bg-blanco;
 }
-.barra-verde,
-.barra-amarilla {
-  @apply w-32;
-  height: 5px;
-}
-.barra-verde {
-  background: linear-gradient(270deg, #64d368 0.15%, #64d368 70.88%);
-}
-.barra-amarilla {
-  background: linear-gradient(180deg, #f5db13 0%, #f2b807 100%);
-}
-
 
 
 button.close {
-  padding: 10px 14px;
   border-radius: 50%;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -50px;
+  right: 0;
   z-index: 1000;
   width: 50px;
 }
 
 @media (min-width: 1024px) {
   .container-modal .wrapper {
-    height: 52vh;
-    overflow-y: auto;
+    height: auto;
+    overflow-y: inherit;
   }
   .image img {
     height: 90%;
@@ -261,7 +253,7 @@ button.close {
 }
 @media (max-width: 768px) {
   .back-pokemon {
-    @apply absolute h-24 w-full;
+    @apply absolute h-24 w-full rounded-t-xl;
     background-color: #732119;
     bottom: 0;
     z-index: 0;
@@ -272,6 +264,13 @@ button.close {
   }
   .generation-name .title {
     font-size: 16px;
+  }
+  button.close {
+    top: 15px;
+    left: 0;
+  }
+  .container-modal .wrapper {
+    overflow-y: auto;
   }
 }
 </style>

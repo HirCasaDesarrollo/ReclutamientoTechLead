@@ -2,25 +2,25 @@
 .container-poke(@click="seeMoreDetails()")
   .description
     .relative-container
-      p.name.mb-5.capitalize {{ pokeData.name }}
+      p.name.mb-5.capitalize {{ pokeData.pokemon_v2_pokemons[0].name }}
       .inline-flex
         .circle
           .counter 
-            p {{ pokeData.weight }}
-          p Weight
+            p {{ pokeData.pokemon_v2_pokemons[0].weight }}
+          p Weight {{pokeData.pokemon_v2_pokemoncolor.name}}
         .circle
           .counter 
-            p {{ pokeData.height }}
+            p {{ pokeData.pokemon_v2_pokemons[0].height }}
           p Height
       .inline-flex
         button.verde.mt-2.mr-4(
           v-on:click="seePokemons()",
-          v-if="pokeData.pokemon_v2_pokemontypes[0]"
-        ) {{ pokeData.pokemon_v2_pokemontypes[0].pokemon_v2_type.name }}
+          v-if="pokeData.pokemon_v2_pokemons[0].pokemon_v2_pokemontypes[0]"
+        ) {{ pokeData.pokemon_v2_pokemons[0].pokemon_v2_pokemontypes[0].pokemon_v2_type.name }}
         button.azul.mt-2(
           v-on:click="seePokemons()",
-          v-if="pokeData.pokemon_v2_pokemontypes[1]"
-        ) {{ pokeData.pokemon_v2_pokemontypes[1].pokemon_v2_type.name }}
+          v-if="pokeData.pokemon_v2_pokemons[0].pokemon_v2_pokemontypes[1]"
+        ) {{ pokeData.pokemon_v2_pokemons[0].pokemon_v2_pokemontypes[1].pokemon_v2_type.name }}
 
   .image(:style="backgroundBanner")
 </template>
@@ -31,11 +31,16 @@ export default {
       type: Object,
       default: function () {
         return {
-          name: undefined,
-          id: undefined,
-          weight: undefined,
-          height: undefined,
-          pokemon_v2_pokemontypes: {},
+          pokemon_v2_pokemons: [
+            {
+              name: undefined,
+              id: undefined,
+              weight: undefined,
+              height: undefined,
+              pokemon_v2_pokemontypes: {},
+            },
+          ],
+          pokemon_v2_pokemoncolor:{}
         };
       },
     },
@@ -43,21 +48,20 @@ export default {
   data() {
     return {
       isVisible: false,
-      backgroundColorRandom:
-        "#" + Math.floor(Math.random() * 16777215).toString(16),
+      
     };
   },
   methods: {
     seeMoreDetails() {
-      this.pokeData.color=this.backgroundColorRandom;
+      this.pokeData.color = this.pokeData.pokemon_v2_pokemoncolor.name;
       this.$emit("seeMoreDetails", this.pokeData);
     },
   },
   computed: {
     backgroundBanner() {
       return {
-        backgroundColor: this.backgroundColorRandom,
-        backgroundImage: `url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${this.pokeData.id}.png)`,
+        backgroundColor: this.pokeData.pokemon_v2_pokemoncolor.name,
+        backgroundImage: `url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${this.pokeData.pokemon_v2_pokemons[0].id}.png)`,
       };
     },
   },
@@ -69,14 +73,16 @@ export default {
   @apply flex flex-wrap rounded-md  shadow-md relative;
 }
 .description {
-  @apply w-5/12 bg-gray-100 p-3 relative rounded-l-md; 
+  @apply w-5/12 bg-gray-100 p-3 relative rounded-l-md;
 }
 .relative-container {
   margin-left: 25px;
 }
 .image {
-  @apply w-7/12 rounded-r-md ;
-  background-size: cover;
+  @apply w-7/12 rounded-r-md;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 80%;
 }
 .name {
   @apply font-bold;

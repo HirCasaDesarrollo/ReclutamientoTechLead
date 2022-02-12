@@ -1,5 +1,6 @@
 <template lang="pug">
 .menu-wrapper
+  .backdrop(v-on:click="isActiveMenuMobile = !isActiveMenuMobile" v-if="isActiveMenuMobile")
   .menu-mobile
     .menu-container-mobile
       .menu-logo-mobile
@@ -15,13 +16,15 @@
 
     .mobile-items(v-if="isActiveMenuMobile")
       div(v-on:click="isActiveMenuMobile = false")
+        img.w-32.inline-block.my-5(src="@/assets/img/logo.svg")
+      div(v-on:click="isActiveMenuMobile = false")
         NuxtLink.link-mobile(to="/") Home
       div(v-on:click="isActiveMenuMobile = false")
         NuxtLink.link-mobile(to="/pokedex") Pokédex
       div(v-on:click="isActiveMenuMobile = false")
-        NuxtLink.link-mobile(to="/cursos") Legendaries
+        NuxtLink.link-mobile(to="/legendaries") Legendaries
       div(v-on:click="isActiveMenuMobile = false")
-        NuxtLink.link-mobile(to="/evaluacion-de-calidad") Documentation
+        NuxtLink.link-mobile(to="/documentation") Documentation
 
   .menu
     .menu-container
@@ -31,8 +34,8 @@
       .menu-items(class="w-9/12 xl:w-9/12")
         NuxtLink.link(to="/") Home
         NuxtLink.link(to="/pokedex") Pokédex
-        NuxtLink.link(to="/cursos") Legendaries
-        NuxtLink.link(to="/evaluacion-de-calidad") Documentation
+        NuxtLink.link(to="/legendaries") Legendaries
+        NuxtLink.link(to="/documentation") Documentation
 
     
 </template>
@@ -81,14 +84,17 @@ export default {
   @apply flex justify-end;
 }
 .mobile-items {
-  @apply bg-black py-4 absolute w-full left-0 text-center;
+  @apply  py-4 fixed w-full left-0 text-center rounded-b-xl;
   z-index: 10000;
+  top: 0;
+  background: linear-gradient(180deg, #F5DB13 0%, #F2B807 100%);
 }
 .mobile-items .link {
   @apply block;
 }
 .link-mobile {
-  @apply text-gray-50 p-2 self-end block;
+  @apply text-black p-2 self-end block;
+  font-size: 27px;
 }
 .link {
   @apply text-black  ml-6 self-end  text-base mr-10  py-2;
@@ -96,9 +102,6 @@ export default {
 }
 .menu-container .nuxt-link-exact-active {
   @apply border-b-2 border-black;
-}
-.mobile-items .nuxt-link-exact-active {
-  color: #f5db11;
 }
 .link:hover {
   font-weight: bold;
@@ -116,4 +119,14 @@ export default {
     width: 121px;
   }
 }
+
+.backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: #21212171;
+}
+
+
 </style>
