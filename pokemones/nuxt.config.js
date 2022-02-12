@@ -18,7 +18,7 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Karla&display=swap'
+        href: 'https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap'
       },
     ],
     

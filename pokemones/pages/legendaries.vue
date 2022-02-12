@@ -33,6 +33,7 @@
           :key="poke.id",
           :pokeData="poke",
           @seeMoreDetails="seeMoreDetails"
+          v-bind:class="[poke.id==selectedPokemonLegendary.id? 'activeCard' : '']"
         )
 
     .rightArrow
@@ -147,6 +148,11 @@ h1.initial-text {
 .abilityConteiner {
   @apply my-5 grid grid-cols-2 sm:grid-cols-2;
 }
+
+.activeCard{
+    filter: grayscale(0%);
+}
+
 @media (max-width: 768px) {
   h1.initial-text {
     font-size: 44px;

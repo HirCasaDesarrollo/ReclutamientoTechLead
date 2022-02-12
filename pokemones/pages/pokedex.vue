@@ -2,15 +2,15 @@
 #pokedex
   Menu
   .container.p-3
-    h1.initial-text 800
-      b Pokemons
-      | for you
-      br(class="sm:hidden lg:block")
+    h1.initial-text 800 
+      b Pokemons 
+      | for you 
+      br(class="lg:hidden sm:block")
       | to choose your
-      br(class="sm:hidden lg:block")
+      br(class="lg:hidden sm:block")
       |
       | favorite
-  .container.p-3
+  .container
     input.finder(
       v-model="busqueda",
       placeholder="Encuentra tu pokemón...",
@@ -28,7 +28,8 @@
       .relative(v-if="showTypes")
         .dropdown
           .flex.flex-wrap.items-center.justify-center(
-            v-for="pokemon in pokemonTypes" :key="pokemon.id",
+            v-for="pokemon in pokemonTypes",
+            :key="pokemon.id"
           )
             input.mr-2(
               class="w-2/12",
@@ -37,21 +38,6 @@
               v-model="selectedPokemonType"
             )
             p(class="w-6/12") {{ pokemon.name }}
-
-    //- select.p-1(v-model="selectedPokemonType")
-    //-   option(disabled, value="") Tipo
-    //-   option(v-for="pokemon in pokemonTypes", v-bind:value="pokemon.id")
-    //-     p {{ pokemon.name }}
-
-    //- select.p-1(v-model="selectedPokemonType")
-    //-   option(disabled, value="") Ataque
-    //-   option(v-for="pokemon in pokemonTypes", v-bind:value="pokemon.id")
-    //-     p {{ pokemon.name }}
-
-    //- select.p-1(v-model="selectedPokemonType")
-    //-   option(disabled, value="") Experiencia
-    //-   option(v-for="pokemon in pokemonTypes", v-bind:value="pokemon.id")
-    //-     p {{ pokemon.name }}
 
   .content-section-container.p-3
     PokedexDetails(
@@ -134,7 +120,7 @@ export default {
     },
   },
   mounted() {
-    //this.selectedPokemonType=1
+    this.selectedPokemonType=[1]
   },
   watch: {
     async selectedPokemonType() {

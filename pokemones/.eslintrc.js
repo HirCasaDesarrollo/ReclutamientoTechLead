@@ -1,14 +1,14 @@
-module.exports = {
+export default {
     "env": {
         "browser": true,
         "es2021": true
     },
     "extends": [
-        "eslint:recommended",
-        "plugin:vue/essential"
+        "plugin:vue/essential",
+        "standard"
     ],
     "parserOptions": {
-        "ecmaVersion": "latest",
+        "ecmaVersion": 12,
         "sourceType": "module"
     },
     "plugins": [
@@ -17,3 +17,4 @@ module.exports = {
     "rules": {
     }
 }
+

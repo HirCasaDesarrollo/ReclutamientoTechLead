@@ -7,7 +7,7 @@
         .circle
           .counter 
             p {{ pokeData.pokemon_v2_pokemons[0].weight }}
-          p Weight {{pokeData.pokemon_v2_pokemoncolor.name}}
+          p Weight 
         .circle
           .counter 
             p {{ pokeData.pokemon_v2_pokemons[0].height }}

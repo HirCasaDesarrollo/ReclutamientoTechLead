@@ -44,8 +44,8 @@ export default {
 <style lang="postcss" scoped>
 .card-pokemon {
   @apply w-2/12 relative p-4 md:p-2 lg:p-4;
-  filter: grayscale(30%);
   cursor: pointer;
+  filter: grayscale(70%);
 }
 
 .card-pokemon .back {

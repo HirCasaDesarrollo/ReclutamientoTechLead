@@ -32,10 +32,10 @@
               p Generation 1
             .circle-generation
               .counter 
-                p {{ pokeData.weight }}
+                p 500
           PokedexButtonsTypes.block(
             class="sm:hidden",
-            :data="pokeData.pokemon_v2_pokemontypes"
+            :data="pokeData.pokemon_v2_pokemons[0].pokemon_v2_pokemontypes"
           )
 
         .ability
@@ -152,7 +152,7 @@ input[type="checkbox" i] {
   overflow-y: inherit;
 }
 .container-modal .wrapper {
-  @apply w-full md:w-11/12 lg:w-10/12 xl:w-7/12 text-morado  rounded-xl shadow-lg bg-gray-50;
+  @apply w-full md:w-11/12 lg:w-10/12 xl:w-7/12 text-morado   shadow-lg ;
 }
 .container-modal .wrapper .link-aviso {
   @apply text-azul italic;
@@ -170,10 +170,10 @@ input[type="checkbox" i] {
   @apply flex flex-wrap rounded-md  shadow-md relative;
 }
 .description {
-  @apply w-full md:w-7/12  text-blanco p-3 pb-8 relative;
+  @apply w-full md:w-7/12  text-blanco p-3 pb-8 relative lg:rounded-r-xl;
 }
 .image {
-  @apply w-full md:w-5/12  text-right relative sm:static;
+  @apply w-full md:w-5/12  text-right relative sm:static rounded-l-xl;
   background-size: cover;
 }
 .image img {
@@ -254,7 +254,7 @@ button.close {
 @media (max-width: 768px) {
   .back-pokemon {
     @apply absolute h-24 w-full rounded-t-xl;
-    background-color: #732119;
+    background-color: #221b1a;
     bottom: 0;
     z-index: 0;
   }
